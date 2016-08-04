@@ -1,1 +1,1 @@
-web: gunicorn sentimentanalyzer:app --log-file -
+web: python sentimentanalyzer.py
