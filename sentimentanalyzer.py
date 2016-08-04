@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template, request
-from textblob import textblob
+from textblob import TextBlob
 
 app = Flask(__name__)
 
