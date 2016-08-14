@@ -10,8 +10,15 @@ def index():
 
 @app.route('/api/sentiment', methods=['POST'])
 def sentiment():
-    text= TextBlob(request.form['message'])
-    response = {'polarity': text.polarity, 'subjectivity' : text.subjectivity}
+    alltext=request.form['message']
+    totalPolarities = 0.0
+    numberoflines=0
+    texts = alltext.split('.')
+    for text in texts:
+        polarity = TextBlob(text)
+        polarities += polarity
+        numberoflines+=1
+    response = {'polarity': polarities/numberoflines, 'subjectivity' : text.subjectivity}
     return jsonify(response)
 
 if __name__ == "__main__":
